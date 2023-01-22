@@ -75,3 +75,14 @@ export async function deleteSerie (req: Request, res: Response) {
   res.sendStatus(200);
   
 }
+
+export async function quantityPerPlatformSerie (req: Request, res: Response) {
+
+  const list =  await connection.query<Serie>(
+    `SELECT series.platform, COUNT(platform) as "quantityPerPlatform"
+    FROM series GROUP BY series.platform;`
+  );
+
+  res.send(list.rows);
+
+}

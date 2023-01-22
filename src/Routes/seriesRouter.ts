@@ -7,5 +7,6 @@ router.post('/series/add', seriesControllers.addSerie);
 router.get('/series/view', seriesControllers.viewSerie);
 router.put('/series/edit/:id', seriesControllers.updateSerie);
 router.delete('/series/delete/:id', seriesControllers.deleteSerie);
+router.get('/series/quantityPerPlatform', seriesControllers.quantityPerPlatformSerie);
 
 export default router;
