@@ -54,6 +54,24 @@ export async function updateSerie (req: Request, res: Response) {
     return res.send(error.message);
   }
   
-  res.sendStatus(201);
+  res.sendStatus(200);
+  
+}
+
+export async function deleteSerie (req: Request, res: Response) {
+  
+  const { id } = req.params;
+
+  try {
+  
+    await connection.query<Serie>(
+      `DELETE FROM series WHERE id = $1;`, [id]
+    );
+  
+  } catch (error) {
+    return res.send(error.message);
+  }
+  
+  res.sendStatus(200);
   
 }
